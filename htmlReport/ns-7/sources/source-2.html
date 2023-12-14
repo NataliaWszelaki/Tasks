@@ -1,0 +1,143 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > SimpleEmailService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.crud.tasks.service</a>
+</div>
+
+<h1>Coverage Summary for Class: SimpleEmailService (com.crud.tasks.service)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SimpleEmailService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87,5%
+  </span>
+  <span class="absValue">
+    (14/16)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.crud.tasks.service;
+&nbsp;
+&nbsp;import com.crud.tasks.domain.Mail;
+&nbsp;import lombok.RequiredArgsConstructor;
+&nbsp;import lombok.extern.slf4j.Slf4j;
+&nbsp;import org.springframework.mail.MailException;
+&nbsp;import org.springframework.mail.SimpleMailMessage;
+&nbsp;import org.springframework.mail.javamail.JavaMailSender;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;
+&nbsp;import java.util.Optional;
+&nbsp;
+<b class="fc">&nbsp;@Slf4j</b>
+&nbsp;@Service
+<b class="fc">&nbsp;@RequiredArgsConstructor</b>
+&nbsp;public class SimpleEmailService {
+&nbsp;
+&nbsp;    private final JavaMailSender javaMailSender;
+&nbsp;
+&nbsp;    public void send(final Mail mail) {
+<b class="fc">&nbsp;        log.info(&quot;Starting email preparation...&quot;);</b>
+&nbsp;        try {
+<b class="fc">&nbsp;            SimpleMailMessage mailMessage = createMailMessage(mail);</b>
+<b class="fc">&nbsp;            javaMailSender.send(mailMessage);</b>
+<b class="fc">&nbsp;            log.info(&quot;Email has been sent.&quot;);</b>
+<b class="nc">&nbsp;        } catch (MailException e) {</b>
+<b class="nc">&nbsp;            log.error(&quot;Failed to process email sending: &quot; + e.getMessage(), e);</b>
+<b class="fc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private SimpleMailMessage createMailMessage(final Mail mail) {
+<b class="fc">&nbsp;        SimpleMailMessage mailMessage = new SimpleMailMessage();</b>
+<b class="fc">&nbsp;        mailMessage.setTo(mail.getMailTo());</b>
+<b class="fc">&nbsp;        Optional&lt;String&gt; toCc = Optional.ofNullable(mail.getToCc());</b>
+<b class="fc">&nbsp;        toCc.ifPresent(mailMessage::setCc);</b>
+<b class="fc">&nbsp;        mailMessage.setSubject(mail.getSubject());</b>
+<b class="fc">&nbsp;        mailMessage.setText(mail.getMessage());</b>
+<b class="fc">&nbsp;        return mailMessage;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-12-14 13:55</div>
+</div>
+</body>
+</html>

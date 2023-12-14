@@ -1,0 +1,159 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > TrelloValidator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.crud.tasks.trello.validator</a>
+</div>
+
+<h1>Coverage Summary for Class: TrelloValidator (com.crud.tasks.trello.validator)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">TrelloValidator</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (2/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    18,2%
+  </span>
+  <span class="absValue">
+    (2/11)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">TrelloValidator$MockitoMock$ZOE4xcLL</td>
+  </tr>
+  <tr>
+    <td class="name">TrelloValidator$MockitoMock$ZOE4xcLL$auxiliary$oA1Dad0a</td>
+  </tr>
+  <tr>
+    <td class="name">TrelloValidator$MockitoMock$ZOE4xcLL$auxiliary$tZMpmbgA</td>
+  </tr>
+  <tr>
+    <td class="name">TrelloValidator$MockitoMock$ZOE4xcLL$auxiliary$whZG0BIy</td>
+  </tr>
+  <tr>
+    <td class="name">TrelloValidator$MockitoMock$ZOE4xcLL$auxiliary$zu7u0Spk</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (2/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    18,2%
+  </span>
+  <span class="absValue">
+    (2/11)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.crud.tasks.trello.validator;
+&nbsp;
+&nbsp;import com.crud.tasks.domain.TrelloBoard;
+&nbsp;import com.crud.tasks.domain.TrelloCard;
+&nbsp;import org.slf4j.Logger;
+&nbsp;import org.slf4j.LoggerFactory;
+&nbsp;import org.springframework.stereotype.Component;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+&nbsp;@Component
+<b class="fc">&nbsp;public class TrelloValidator {</b>
+<b class="fc">&nbsp;    private static final Logger LOGGER = LoggerFactory.getLogger(TrelloValidator.class);</b>
+&nbsp;
+&nbsp;    public void validateCard(final TrelloCard trelloCard) {
+<b class="nc">&nbsp;        if (trelloCard.getName().contains(&quot;test&quot;)) {</b>
+<b class="nc">&nbsp;            LOGGER.info(&quot;Someone is testing my application!&quot;);</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            LOGGER.info(&quot;Seems that my application is used in proper way.&quot;);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public List&lt;TrelloBoard&gt; validateTrelloBoards(final List&lt;TrelloBoard&gt; trelloBoards) {
+<b class="nc">&nbsp;        LOGGER.info(&quot;Starting filtering boards...&quot;);</b>
+<b class="nc">&nbsp;        List&lt;TrelloBoard&gt; filteredBoards = trelloBoards.stream()</b>
+<b class="nc">&nbsp;                .filter(trelloBoard -&gt; !trelloBoard.getName().equalsIgnoreCase(&quot;test&quot;))</b>
+<b class="nc">&nbsp;                .collect(Collectors.toList());</b>
+<b class="nc">&nbsp;        LOGGER.info(&quot;Boards have been filtered. Current list size: &quot; + filteredBoards.size());</b>
+&nbsp;
+<b class="nc">&nbsp;        return filteredBoards;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-12-14 13:55</div>
+</div>
+</body>
+</html>

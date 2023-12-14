@@ -1,0 +1,90 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > TaskRepository</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.crud.tasks.repository</a>
+</div>
+
+<h1>Coverage Summary for Class: TaskRepository (com.crud.tasks.repository)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">TaskRepository</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.crud.tasks.repository;
+&nbsp;
+&nbsp;import com.crud.tasks.domain.Task;
+&nbsp;import org.springframework.data.repository.CrudRepository;
+&nbsp;import org.springframework.stereotype.Repository;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Optional;
+&nbsp;
+&nbsp;@Repository
+&nbsp;public interface TaskRepository extends CrudRepository&lt;Task, Long&gt; {
+&nbsp;    @Override
+&nbsp;    List&lt;Task&gt; findAll();
+&nbsp;
+&nbsp;    @Override
+&nbsp;    Task save(Task task);
+&nbsp;
+&nbsp;    @Override
+&nbsp;    Optional&lt;Task&gt; findById(Long id);
+&nbsp;
+&nbsp;    @Override
+&nbsp;    void deleteById(Long id);
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-12-14 13:55</div>
+</div>
+</body>
+</html>
