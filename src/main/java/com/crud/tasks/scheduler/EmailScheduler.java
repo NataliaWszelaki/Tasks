@@ -17,11 +17,12 @@ public class EmailScheduler {
     private final TaskRepository taskRepository;
     private final AdminConfig adminConfig;
 
-    @Scheduled(cron = "0 0 10 * * *")
+    //@Scheduled(cron = "0 0 10 * * *")
+    @Scheduled(fixedRate = 10000)
     public void sendInformationEmail() {
         long size = taskRepository.count();
         String taskNoun = (size<2) ? "task" : "tasks";
-        simpleEmailService.send(
+        simpleEmailService.sendDaily(
                 Mail.builder()
                         .mailTo(adminConfig.getAdminMail())
                         .subject(SUBJECT)
